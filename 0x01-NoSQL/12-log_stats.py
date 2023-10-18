@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""A Python script that provides some stats about Nginx logs stored in MongoDB"""
+"""A Python script that provides some stats
+about Nginx logs stored in MongoDB"""
+
 from pymongo import MongoClient
+
 
 if __name__ == "__main__":
     client = MongoClient("mongodb://localhost:27017")
     db = client["logs"]
     col = db["nginx"]
 
-    logsCount= col.count_documents({})
+    logsCount = col.count_documents({})
 
     print(f"{logCount} logs\nMethods:")
 
@@ -18,6 +21,6 @@ if __name__ == "__main__":
         print(f'\tmethod {method}: {methodCount}')
 
     getStatusCount = col.count_documents({'method': 'GET',
-                                            'path': '/status'})
+                                          'path': '/status'})
 
     print(f"{getStatusCount} status check")
