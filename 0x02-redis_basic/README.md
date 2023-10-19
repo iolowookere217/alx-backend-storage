@@ -2,7 +2,6 @@
 
 | `Back-end` | `Redis` |
 
-![meme](images/meme.png)
 
 ## Resources
 
